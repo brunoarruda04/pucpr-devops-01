@@ -3,11 +3,8 @@
 require 'sinatra'
 require 'json'
 
-helpers do
-  def tasks
-    settings.tasks ||= []
-  end
-end
+# armazenamento em memória
+set :tasks, []
 
 before do
   content_type :json
@@ -17,24 +14,27 @@ get '/' do
   { message: 'API Ruby funcionando!' }.to_json
 end
 
+# listar tarefas
 get '/tasks' do
-  tasks.to_json
+  settings.tasks.to_json
 end
 
+# criar tarefa
 post '/tasks' do
   data = JSON.parse(request.body.read)
 
   task = {
-    id: (tasks.size + 1).to_s,
+    id: (settings.tasks.size + 1).to_s,
     title: data['title']
   }
 
-  tasks << task
+  settings.tasks << task
   task.to_json
 end
 
+# deletar tarefa
 delete '/tasks/:id' do
-  tasks.delete_if { |task| task[:id] == params[:id] }
+  settings.tasks.delete_if { |task| task[:id] == params[:id] }
   status 204
 end
 
