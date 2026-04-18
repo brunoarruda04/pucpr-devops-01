@@ -11,10 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Criar release
-        uses: softprops/action-gh-release@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: Release automática
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
