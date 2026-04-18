@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/brunoarruda04/pucpr-devops-01/compare/v1.1.0...v1.1.1) (2026-04-18)
+
+
+### Bug Fixes
+
+* using import/lib wrong ([a2a6031](https://github.com/brunoarruda04/pucpr-devops-01/commit/a2a603196811691fa5c8ee4193a695b27067b654))
+
 # [1.1.0](https://github.com/brunoarruda04/pucpr-devops-01/compare/v1.0.0...v1.1.0) (2026-04-18)
 
 
