@@ -10,5 +10,12 @@ get '/tasks' do
   tasks.to_json
 end
 
+post '/tasks' do
+  task = JSON.parse(request.body.read)
+  tasks << task
+  task.to_json
+end
+
+
 set :bind, '0.0.0.0'
 set :port, 4567
