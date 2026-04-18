@@ -1,23 +1,34 @@
 require 'sinatra'
+require 'json'
 
-get '/' do
-  "Hello, Docker com Ruby!"
+$tasks = []
+
+before do
+  content_type :json
 end
 
-tasks = []
+get '/' do
+  { message: "API Ruby funcionando!" }.to_json
+end
 
 get '/tasks' do
-  tasks.to_json
+  $tasks.to_json
 end
 
 post '/tasks' do
-  task = JSON.parse(request.body.read)
-  tasks << task
+  data = JSON.parse(request.body.read)
+
+  task = {
+    id: ($tasks.size + 1).to_s,
+    title: data["title"]
+  }
+
+  $tasks << task
   task.to_json
 end
 
 delete '/tasks/:id' do
-  tasks.delete_if { |task| task['id'] == params[:id] }
+  $tasks.delete_if { |task| task[:id] == params[:id] }
   status 204
 end
 
