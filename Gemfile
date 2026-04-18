@@ -4,6 +4,7 @@ ruby '4.0.0'
 
 source 'https://rubygems.org'
 
+gem 'dry-schema'
 gem 'rubocop', require: false
 gem 'sinatra'
 

@@ -2,7 +2,7 @@
 
 require 'sinatra'
 require 'json'
-require 'dry/validation'
+require 'dry/schema'
 
 set :tasks, []
 
