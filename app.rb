@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'json'
 
@@ -9,7 +11,7 @@ before do
 end
 
 get '/' do
-  { message: "API Ruby funcionando!" }.to_json
+  { message: 'API Ruby funcionando!' }.to_json
 end
 
 # listar tarefas
@@ -23,7 +25,7 @@ post '/tasks' do
 
   task = {
     id: (settings.tasks.size + 1).to_s,
-    title: data["title"]
+    title: data['title']
   }
 
   settings.tasks << task
