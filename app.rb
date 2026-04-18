@@ -2,9 +2,13 @@
 
 require 'sinatra'
 require 'json'
+require 'dry/validation'
 
-# armazenamento em memória
 set :tasks, []
+
+TaskSchema = Dry::Schema.Params do
+  required(:title).filled(:string)
+end
 
 before do
   content_type :json
@@ -14,14 +18,15 @@ get '/' do
   { message: 'API Ruby funcionando!' }.to_json
 end
 
-# listar tarefas
 get '/tasks' do
   settings.tasks.to_json
 end
 
-# criar tarefa
 post '/tasks' do
   data = JSON.parse(request.body.read)
+  result = TaskSchema.call(data)
+
+  halt 400, { error: result.errors.to_h }.to_json unless result.success?
 
   task = {
     id: (settings.tasks.size + 1).to_s,
@@ -32,7 +37,6 @@ post '/tasks' do
   task.to_json
 end
 
-# deletar tarefa
 delete '/tasks/:id' do
   settings.tasks.delete_if { |task| task[:id] == params[:id] }
   status 204
