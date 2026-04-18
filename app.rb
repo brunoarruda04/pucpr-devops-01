@@ -16,6 +16,10 @@ post '/tasks' do
   task.to_json
 end
 
+delete '/tasks/:id' do
+  tasks.delete_if { |task| task['id'] == params[:id] }
+  status 204
+end
 
 set :bind, '0.0.0.0'
 set :port, 4567
