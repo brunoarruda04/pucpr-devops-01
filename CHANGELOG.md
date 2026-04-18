@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/brunoarruda04/pucpr-devops-01/compare/v1.0.0...v1.1.0) (2026-04-18)
+
+
+### Features
+
+* adding dry validation to post ([db50199](https://github.com/brunoarruda04/pucpr-devops-01/commit/db501999c0bca6b8a620b3219c973cf8a55014d1))
+
 # 1.0.0 (2026-04-18)
 
 
