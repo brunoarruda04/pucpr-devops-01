@@ -1,8 +1,11 @@
-name: Continuous Deployment
+name: CD
 
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -14,7 +17,5 @@ jobs:
       - name: Criar release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: Release automática
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
