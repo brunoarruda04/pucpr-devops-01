@@ -16,11 +16,11 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '4.0.0'
+          ruby-version: '4.0.3'
           bundler-cache: true
 
       - name: Rodar linter (RuboCop)
         run: bundle exec rubocop
 
-      - name: Teste simples
-        run: ruby -e "puts 'CI OK'"
+      - name: Rodar testes (RSpec)
+        run: bundle exec rspec

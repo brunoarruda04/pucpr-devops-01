@@ -51,10 +51,10 @@ lint:
 lint-fix:
 	bundle exec rubocop -A
 
-# Teste (placeholder)
+# Testes
 .PHONY: test
 test:
-	@echo "Sem testes ainda"
+	bundle exec rspec
 
 # Docker build
 .PHONY: docker-build
