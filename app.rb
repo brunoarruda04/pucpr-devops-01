@@ -6,6 +6,11 @@ require 'dry/schema'
 
 set :tasks, []
 
+set :environment, :test if ENV['RACK_ENV'] == 'test'
+configure :test do
+  set :protection, except: :host_authorization
+end
+
 TaskSchema = Dry::Schema.Params do
   required(:title).filled(:string)
 end

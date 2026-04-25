@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '4.0.0'
+ruby '4.0.3'
 
 source 'https://rubygems.org'
 
@@ -10,3 +10,6 @@ gem 'sinatra'
 
 gem 'puma', '~> 8.0'
 gem 'rackup', '~> 2.3'
+
+gem 'rack-test'
+gem 'rspec'
