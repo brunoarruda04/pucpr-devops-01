@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/brunoarruda04/pucpr-devops-01/compare/v1.1.1...v1.2.0) (2026-04-25)
+
+
+### Features
+
+* adding tests ([41557a5](https://github.com/brunoarruda04/pucpr-devops-01/commit/41557a5ba3720112c3a0431e5fbc7f9a8649accc))
+
 ## [1.1.1](https://github.com/brunoarruda04/pucpr-devops-01/compare/v1.1.0...v1.1.1) (2026-04-18)
 
 
